@@ -21,15 +21,24 @@ buildscript {
         targetSdkVersion = 32
         compileSdkVersion = 32
     }
+    repositories {
+        google()
+        jcenter()
+    }
     dependencies {
+        classpath "com.android.tools.build:gradle:4.0.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hiltVersion"
     }
 }
-plugins {
-    id 'com.android.application' version '7.1.0' apply false
-    id 'com.android.library' version '7.1.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.6.21' apply false
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
 }
 
 task clean(type: Delete) {
